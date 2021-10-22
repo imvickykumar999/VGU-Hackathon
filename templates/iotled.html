@@ -1,0 +1,294 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Vicks IOT LED</title>
+  </head>
+
+  <body>
+    <center>
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="alert alert-dark" role="alert">
+            <!-- <a href="https://inshorts.com/en/read"> -->
+
+            <a target="_blank" href="#">
+              <h1 style="color:black;">
+                <strong>
+                  Crime Data
+                  <br>
+                  <!-- <em style="color:black;">Total Records = </em> -->
+                </strong>
+              </h1>
+            </a>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="vickscroll">
+      {% if scroll %}
+      <script>
+          document.location.hash = '#' + '{{ scroll }}';
+      </script>
+      {% endif %}
+    </div>
+    <!-- scroll='vickscroll', -->
+
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="alert alert-dark" role="alert">
+        <a target="_blank" href="https://home-automation-336c0-default-rtdb.firebaseio.com/Views">
+          <h1 style="color:black;">
+            <strong>
+              Page Views = {{pageviews}}
+            </strong>
+          </h1>
+        </a>
+      </div>
+
+      <br><br>
+      <div class="row row-cols-1 row-cols-md-2">
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/murder.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="murder" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Murder</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/rape.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="rape" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Rape</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/chain.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="chain" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Chain Snatching</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/domestic.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="domestic" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Domestic Violence</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/kidnape.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="kidnape" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Kidnapping</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/robbry.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="robbry" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Robbry</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/terrorist.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="terrorist" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Terrorist</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="alert alert-dark" role="alert">
+          <div class="col-md-6">
+            <br><br>
+            <img src="../static/crime/cyber.jpg" width = "100%">
+            <br><br>
+            <div class="custom-control custom-radio">
+              <input value="cyber" type="radio" id="audio" name="turn" class="form-check-input">
+              <label class="form-check-label" for="customRadio1">
+                <h5>Cyber Crime</h5>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br>
+
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+
+      <a class="btn btn-dark"
+      data-toggle="collapse"
+      href="#collapseExample"
+      role="button">
+
+      <h1 style="color:white">
+        Open
+        <br>
+        Record
+      </h1>
+      </a>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="container">
+          <br>
+
+          {% for key, values in data.items() %}
+            <div class="card text-white bg-dark mb-3" role="alert">
+            <!-- <div class="jumbotron jumbotron-fluid"> -->
+            <br>
+              <h1 style="color:white">
+                <strong><em>{{key}}</em></strong>
+              </h1>
+              <br>
+
+              {% for subkey, subvalues in values.items() %}
+                <div class="alert alert-light" role="alert">
+
+                  <br>
+                  <div class="card text-white bg-dark mb-3" role="alert">
+                    <h1 style="color:white">
+                      {{subkey}}
+                    </h1>
+                  </div>
+
+                  {% for subkeysub, subvaluesub in subvalues.items() %}
+                  <tr>
+
+                     <td>
+                       <div class="alert alert-dark" role="alert">
+                         <br><br>
+                         <img src="../static/my dp/harshul.jpg" width="50%">
+
+                         <h1>
+                           <strong>
+
+                             <div style="white-space: pre-line">
+                               {{subvaluesub}}
+                             </div>
+
+                           </strong>
+                         </h1>
+                       </div>
+                     </td>
+
+                     <th>
+                       <div class="card text-white bg-dark mb-3" role="alert">
+                         <h2>- by {{subkeysub}}</h2>
+                       </div>
+                     </th>
+
+                  </tr>
+                  {% endfor %}
+
+                </div>
+                <br><br><br><br><br>
+              {% endfor %}
+
+            </div>
+            <br><br>
+
+            <div class="alert alert-light" role="alert">
+              <a target="_blank" href="https://console.firebase.google.com/u/0/project/chatting-c937e/database/chatting-c937e-default-rtdb/data">
+                <h1 style="color:red">
+                  <strong>
+                    <em>
+                      The Next Day
+                    </em>
+                  </strong>
+                </h1>
+              </a>
+            </div>
+
+          <br><br>
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+    <a class="btn btn-dark"
+    data-toggle="collapse"
+    href="#collapseExample"
+    role="button">
+
+    <h1 style="color:white">
+      Close
+      <br>
+      Record
+    </h1>
+    </a>
+
+  </div>
+
+    </center>
+  </body>
+</html>
+
+{% endblock %}

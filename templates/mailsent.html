@@ -1,0 +1,83 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css">
+    <title>OTP Sent</title>
+</head>
+
+<body>
+
+  <center>
+    <div class="card text-white bg-secondary mb-3">
+
+      {% if sent == 'yes' %}
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+
+            <div class="alert alert-dark" role="alert">
+              <a href="/yourquotes">
+
+                <h1 style="color:black;">
+                  <strong>
+                    OTP has been sent
+                    <br>
+                    <em style="color:blue;">Click me to enter OTP</em>
+                  </strong>
+                </h1>
+
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      <br>
+        <form method="post" action="/mail_sent">
+          <div class="card text-white bg-dark mb-3" role="alert">
+            <div class="alert alert-dark" role="alert">
+
+              <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox">
+                <h2 style="color:black;">
+                  <strong>
+                    Enter Admin's Email-ID <br> to Send OTP
+                  </strong>
+                </h2>
+              </a>
+
+              <br>
+              <input type="text" name="user" placeholder="Type Here"/>
+              <br><br>
+            </div>
+
+            <div class="alert alert-dark" role="alert">
+
+              <h2 style="color:black;">
+                <strong>
+                  Enter Password
+                </strong>
+              </h2>
+
+              <br>
+              <input type="password" name="pass" placeholder="Type Here"/>
+              <br><br>
+            </div>
+
+            <input type="image"
+                   src="../static/logo/redsubmit.png"
+                   width="200"
+                   height="60"
+                   alt="submit"/>
+
+          </div>
+      </form>
+    </div>
+  </center>
+
+</body>
+</html>
+
+{% endblock %}
