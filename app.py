@@ -168,8 +168,6 @@ def send_audio(filename):
 
 # ========================================================
 
-# https://myaccount.google.com/u/3/lesssecureapps?pli=1&rapt=AEjHL4MpjjYh8Z-01vJ5GRsQXICYQsXHG0PweSjWenlbAJfes6qNKbHKs_CfCVh0d5qUO58qFeeB0sYCbA3GANLf-965469dVA
-
 @app.route("/vicksmail")
 def vicksmail():
     return render_template("mailsent.html", sent='no')
@@ -193,7 +191,6 @@ def mail_sent():
         msg['Subject'] = "Vicks OTP"
         import random
         otp = str(random.randint(1000,9999))
-        # otp = '7639'
 
         file1 = open("otp.txt", "w")
         file1.write(otp)
@@ -299,6 +296,10 @@ def converted_admin():
         else:
             obj1.push(message)
 
+        from gtts import gTTS
+        tts = gTTS(message)
+        tts.save(f"uploads/crime/{aadhar.split('.')[0]}.mp3")
+
         data = obj1.pull('Group/Chat')
         print('------------------------->', data)
         pageviews = callviews()
@@ -331,7 +332,7 @@ def user():
                            pageviews=pageviews,
                            data = data,
                            )
-                           
+
 # --------------------------------------------
 
 @app.route('/uploads/<filename>')
@@ -467,6 +468,12 @@ def listen_news():
 @app.route('/uploads/news/<filename>')
 def send_news(filename):
     return send_from_directory("uploads/news", filename)
+
+@app.route('/uploads/crime/<filename>')
+def send_crime(filename):
+    return send_from_directory("uploads/crime", filename)
+
+# ==================================================
 
 @app.errorhandler(404)
 def page_not_found(e):
