@@ -1,0 +1,129 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Vicks IOT LED</title>
+  </head>
+
+  <body>
+    <center>
+
+    <div id="vickscroll">
+      {% if scroll %}
+      <script>
+          document.location.hash = '#' + '{{ scroll }}';
+      </script>
+      {% endif %}
+    </div>
+    <!-- scroll='vickscroll', -->
+
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="alert alert-dark" role="alert">
+        <a target="_blank" href="https://home-automation-336c0-default-rtdb.firebaseio.com/Views">
+          <h1 style="color:black;">
+            <strong>
+              Page Views = {{pageviews}}
+            </strong>
+          </h1>
+        </a>
+      </div>
+
+    </div>
+    <br>
+    <!-- </center> -->
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <div class="alert alert-dark" role="alert">
+
+          <h1 style="color:black;">
+            <strong>
+              Crime Data
+              <br>
+            </strong>
+          </h1>
+
+        </div>
+      </div>
+    </center>
+
+      <br>
+      <br>
+
+      {% for key, values in data.items() %}
+        <div class="card text-white bg-dark mb-3" role="alert">
+        <br>
+
+          <a class="btn btn-dark"
+          data-toggle="collapse"
+          href="#{{key}}"
+          role="button">
+
+            <h1 style="color:white">
+              <strong><em>{{key}}</em></strong>
+            </h1>
+
+            <img src="../static/crime/{{key}}.jpg" width = "75%">
+          </a>
+          <br>
+
+          <div class="collapse" id="{{key}}">
+
+            {% for subkey, subvalues in values.items() %}
+              <div class="alert alert-light" role="alert">
+
+                <br>
+                <!-- <div class="card text-white bg-dark mb-3" role="alert">
+                  <h1 style="color:white">
+                    {{subkey}}
+                  </h1>
+                </div> -->
+
+                {% for subkeysub, subvaluesub in subvalues.items() %}
+                <tr>
+
+                   <td>
+                     <div class="alert alert-dark" role="alert">
+                       <br><br>
+                       <img src="../{{subkey}}.jpg" width="30%">
+
+                       <h5>
+                         <strong>
+                           <div style="white-space: pre-line">
+                             {{subvaluesub}}
+                           </div>
+
+                         </strong>
+                       </h5>
+                     </div>
+                   </td>
+
+                   <th>
+                     <div class="card text-white bg-dark mb-3" role="alert">
+                       <h2>Admin : {{subkeysub}}</h2>
+                     </div>
+                   </th>
+
+                </tr>
+                {% endfor %}
+
+              </div>
+              <br><br><br><br><br>
+            {% endfor %}
+
+          </div>
+        </div>
+        <br><br><br><br>
+      {% endfor %}
+
+      </div>
+  </body>
+</html>
+
+{% endblock %}

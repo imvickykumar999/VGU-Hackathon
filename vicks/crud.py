@@ -36,7 +36,8 @@ class vicks:
             t = str(dt).split()[1].split('.')[0]
 
             if child == None:
-                child = f'Group/Chat/{d}/{t}'
+                # child = f'Group/Chat/{d}/{t}'
+                child = f'Group/Chat/{self.name[0]}/{self.name[1]}/{self.name[2]}'
 
             result = self.firebase_obj.get(f'{child}', None)
             return result
@@ -51,7 +52,7 @@ class vicks:
 
         if self.password == '@Hey_Vicks':
             dt = datetime.now()
-            dt += timedelta(hours = 5, minutes = 30)
+            # dt += timedelta(hours = 5, minutes = 30)
 
             d = str(dt).split()[0]
             t = str(dt).split()[1].split('.')[0]
@@ -60,7 +61,7 @@ class vicks:
 
             if child == None:
                 # child = f"Group/Chat/{d}/{t}&{str(hostname+'*'+ip)}@{self.name}"
-                child = f"Group/Chat/{d}/{t}/{self.name}"
+                child = f"Group/Chat/{self.name[0]}/{self.name[1]}/{self.name[2]}"
 
             if data == None:
                 data = f"...hi, I am {self.name}"
