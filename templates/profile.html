@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>User</title>
+  </head>
+
+  <body>
+    <center>
+
+    <div id="vickscroll">
+      {% if scroll %}
+      <script>
+          document.location.hash = '#' + '{{ scroll }}';
+      </script>
+      {% endif %}
+    </div>
+
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+      <br>
+      <img src="ss.png" width = "70%">
+
+    </div>
+    <br><br>
+    <!-- </center> -->
+
+  </body>
+</html>
+
+{% endblock %}

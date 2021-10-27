@@ -315,6 +315,13 @@ def converted_admin():
 
 # ====================================================
 
+@app.route('/profile')
+def profile():
+    from vicks import recog
+    # recog.scan()
+    recog.testing(recog.training())
+    return render_template("profile.html")
+
 @app.route('/')
 def user():
     from vicks import crud
